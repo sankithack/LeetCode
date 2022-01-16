@@ -6,8 +6,6 @@ class Solution:
                 return m[idx]
             if(idx>=n):
                 return 0;
-            if(idx==n-1):
-                return questions[idx][0];
             s=questions[idx][0]+getpoints(idx+ 1 + questions[idx][1],questions,n)
             i=0+getpoints(idx+1,questions,n)
             m[idx]=max(s,i)
