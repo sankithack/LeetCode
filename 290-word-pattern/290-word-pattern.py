@@ -1,27 +1,15 @@
 class Solution:
     def wordPattern(self, pattern: str, s: str) -> bool:
-        m={}
-        result=""
-        k=0
-        ss=s.split(" ")
-        for i in ss:
-            if i in m:
-                result+=m[i]
-            else:
-                m[i]=str(k)+""
-                result+=str(k)
-                k+=1 
-        m={}
-        p_res=""
-        k=0
-        for i in pattern:
-            if i in m:
-                p_res+=m[i]
-            else:
-                m[i]=str(k)+""
-                p_res+=str(k)
-                k+=1
-        if(result==p_res):
-            return True
-        else:
+        inp=s.split(" ")
+        if(len(pattern)!=len(inp)):
             return False
+        m={}
+        for i in range(len(inp)):
+            if pattern[i] in m:
+                if (m[pattern[i]]!=inp[i]):
+                    return False
+            else:
+                if(inp[i] in m.values()):
+                    return False
+                m[pattern[i]]=inp[i]
+        return True
