@@ -10,5 +10,7 @@ class Solution {
                 currsum=0;
         }
         return maxsum;
+        //Time Complexity - O(N)
+        //Space Complexity - O(1)
     }
 }
