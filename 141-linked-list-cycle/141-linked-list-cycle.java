@@ -11,17 +11,18 @@
  */
 public class Solution {
     public boolean hasCycle(ListNode head) {
-        //Using HashSet Approach
-        Set<ListNode> nodesSeen = new HashSet();
-        while(head!=null){
-            if(nodesSeen.contains(head)){
+        //Using Fast and Slow Pointer Approach
+        ListNode fast=head;
+        ListNode slow=head;
+        while(fast!=null && fast.next!=null){
+            fast=fast.next.next;
+            slow=slow.next;
+            if(slow == fast){
                 return true;
             }
-            nodesSeen.add(head);
-            head=head.next;            
         }
         return false;
         //Time Complexity - O(N)
-        //Space Complexity - O(N)
+        //Space Compexity - O(1)
     }
 }
