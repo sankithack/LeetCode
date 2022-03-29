@@ -19,43 +19,23 @@ class Solution {
             return list2;
         
         //Using Two pointe Apporach
-        ListNode result=null;
-        ListNode tmp;
-        ListNode curr=null;
-        boolean k=true;
+        ListNode result=new ListNode(-1);
+        ListNode prev=result;
         while(list1!=null && list2!=null)
         {
             if(list1.val<list2.val){
-                tmp=new ListNode(list1.val);
+                prev.next=list1;
                 list1=list1.next;
             }
             else{
-                tmp=new ListNode(list2.val);
+                prev.next=list2;
                 list2=list2.next;
             } 
-            if(k){
-                result=tmp;
-                k=false;
-                curr=result;
-            }
-            curr.next=tmp;
-            curr=curr.next;
+            prev=prev.next;
         }
-        //Filling remaining List1
-        while(list1!=null){
-            tmp=new ListNode(list1.val);
-            list1=list1.next;
-            curr.next=tmp;
-            curr=curr.next;            
-        }
-        //Filling remaining List2
-        while(list2!=null){
-            tmp=new ListNode(list2.val);
-            list2=list2.next;
-            curr.next=tmp;
-            curr=curr.next;            
-        }
-        return result;   
+
+        prev.next = list1 == null ? list2:list1;
+        return result.next;   
         //Time Complexity - O(N+K)
         //Space Complexity - O(1)
     }
