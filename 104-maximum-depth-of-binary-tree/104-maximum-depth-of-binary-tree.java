@@ -18,9 +18,6 @@ class Solution {
         // If node is null
         if(root==null)
             return 0;
-        // If node is leaf
-        if(root.left==null && root.right==null)
-            return 1;
         int l=maxDepth(root.left);
         int r=maxDepth(root.right);
         return Math.max(l,r)+1;
