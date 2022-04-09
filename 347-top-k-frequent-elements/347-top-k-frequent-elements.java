@@ -24,5 +24,7 @@ class Solution {
             result[i]=minheap.poll();
         }
         return result;
+        // Time Complexity - O(nlog n)
+        // Space Complexity - O(n)
     }
 }
